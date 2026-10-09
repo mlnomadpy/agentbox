@@ -1,6 +1,7 @@
 # Agentbox documentation
 
 - [Development and validation](development.md): fixture setup, real stores, builds, and checks.
+- [Testing strategy and profiling](testing.md): focused local feedback and full CI gates.
 - [System architecture](architecture.md): runtime components and data flow.
 - [Quality roadmap](roadmap.md): staged work and completion criteria.
 - [Contribution guide](../CONTRIBUTING.md): proposing and submitting changes.

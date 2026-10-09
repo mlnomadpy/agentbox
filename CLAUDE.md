@@ -19,14 +19,17 @@ rules that are not obvious from them.
 - Name the test file after the behaviour, as a sentence
   (`a-reply-moves-the-agent-row.test.mjs`), and open it with a comment saying
   what broke and how you measured it.
-- Before you report, run the tests for what you changed: `npm run test:changed`
-  (or `npm run test:changed <files>`). That is your own tests, every test that
-  imports those files, and every test that reads one of them as text —
-  `vitest related` alone misses that last kind, which is how three red tests
-  once shipped and how a branch bounced five times. Before completing code changes, run the whole suite with bounded workers:
-  `npx vitest run --maxWorkers=4 --minWorkers=1`. This also satisfies AGENTS.md
-  without overwhelming a shared machine. Documentation-only changes use
-  `npm run check:contribution`; avoid tests that assert prose verbatim.
+- During iteration, use `npm run test:working` for uncommitted changes, or
+  pass explicit files to `npm run test:changed`. Before completion, select the
+  PR's entire diff with `npm run test:changed -- --base <ref>` (default base is
+  `origin/main`). This includes tests that read source as text.
+- Run `npm test` locally for dependencies, shared test infrastructure, deleted
+  source, or uncertain impact. The selector falls back to full coverage in
+  those cases. Full Linux/macOS CI is required for merge. Do not repeat a green
+  full local run without a new change or unresolved failure.
+- Documentation changes require `npm run check:contribution` and affected
+  source-reading tests, not tests that assert prose verbatim. See
+  [docs/testing.md](docs/testing.md) for scope and profiling commands.
 
 
 ## UPSTREAM MAINTAINER SHIPPING IS ONE COMMAND: `npm run ship`

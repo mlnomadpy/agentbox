@@ -35,7 +35,7 @@ export function checkForm(form, labels) {
 
 export function checkRepository(root) {
   const errors = [];
-  const guides = ['README.md', 'CONTRIBUTING.md', 'AGENTS.md', 'CLAUDE.md', 'SECURITY.md', 'SUPPORT.md', 'GOVERNANCE.md', 'docs/README.md', 'docs/development.md', 'docs/architecture.md', 'docs/roadmap.md'];
+  const guides = ['README.md', 'CONTRIBUTING.md', 'AGENTS.md', 'CLAUDE.md', 'SECURITY.md', 'SUPPORT.md', 'GOVERNANCE.md', 'docs/README.md', 'docs/development.md', 'docs/testing.md', 'docs/architecture.md', 'docs/roadmap.md'];
   for (const guide of guides) {
     try {
       const missing = checkMarkdown(fs.readFileSync(path.join(root, guide), 'utf8'), file => {

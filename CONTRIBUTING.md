@@ -29,11 +29,13 @@ validation; they do not need tests that assert prose verbatim.
 
 ```sh
 npm run check:contribution
-npm run test:changed
+npm run test:working # fast feedback during editing
+npm run test:changed # entire PR diff; pass --base for a stacked PR
 npm run typecheck
-npx vitest run --maxWorkers=4 --minWorkers=1
+npm test             # dependencies, shared setup, deleted source, or broad changes
 ```
 
+See the [testing guide](docs/testing.md) for selection, full-suite gates, and profiling.
 Read [CLAUDE.md](CLAUDE.md) for engineering constraints. AI assistance is welcome;
 you remain responsible for reviewing every line, running checks, and explaining
 manual verification. Never include credentials, personal stores, machine paths,
