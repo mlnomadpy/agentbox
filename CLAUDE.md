@@ -23,12 +23,16 @@ rules that are not obvious from them.
   (or `npm run test:changed <files>`). That is your own tests, every test that
   imports those files, and every test that reads one of them as text —
   `vitest related` alone misses that last kind, which is how three red tests
-  once shipped and how a branch bounced five times. Do not run the whole suite
-  by hand: several agents share one Mac, and the push hook and GitHub already
-  do it (GitHub runs the whole suite on every push; the hook runs it when a
-  change touches what every test depends on).
+  once shipped and how a branch bounced five times. Before completing code changes, run the whole suite with bounded workers:
+  `npx vitest run --maxWorkers=4 --minWorkers=1`. This also satisfies AGENTS.md
+  without overwhelming a shared machine. Documentation-only changes use
+  `npm run check:contribution`; avoid tests that assert prose verbatim.
 
-## SHIPPING IS ONE COMMAND: `npm run ship`
+
+## UPSTREAM MAINTAINER SHIPPING IS ONE COMMAND: `npm run ship`
+
+External contributors use the normal fork/branch/pull-request workflow described
+in CONTRIBUTING.md. The following shipping automation is for upstream maintainers.
 
 Several agents work this repository at once, so the order of operations is not
 a matter of taste. Work on a branch `agentbox/<item id>` in a worktree, commit

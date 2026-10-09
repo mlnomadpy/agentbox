@@ -1,8 +1,10 @@
-# agentbox: notes for agents working in this repo (Codex)
+# Agentbox: instructions for coding agents
 
-Read `CLAUDE.md` in full before you touch anything; every rule in it applies to
-you.
+Read [CLAUDE.md](CLAUDE.md) in full before changing this repository.
+Use [CONTRIBUTING.md](CONTRIBUTING.md) for setup and submission.
 
-The rule that governs how you finish: every change lands with a test written
-first and watched failing, and you run the whole suite, `npx vitest run`, before
-you report anything.
+Behavior changes require regression tests written first and observed failing.
+Before completion, run the full suite with bounded workers:
+`npx vitest run --maxWorkers=4 --minWorkers=1`.
+Documentation-only changes require `npm run check:contribution` rather than
+verbatim prose tests. Report which checks ran and any unresolved failures.

@@ -5,8 +5,8 @@ matter a great deal. Thank you for reporting one privately.
 
 ## How to report
 
-Use GitHub's private reporting: the **Security** tab of this repository, then
-**Report a vulnerability**. Please do not open a public issue or pull request
+Use [private vulnerability reporting for this fork](https://github.com/mlnomadpy/agentbox/security/advisories/new),
+or the **Security** tab of the repository affected, then **Report a vulnerability**. Please do not open a public issue or pull request
 for it.
 
 Include what an attacker could do, the steps to reproduce it, and the version
@@ -14,8 +14,9 @@ or commit you tested.
 
 ## What happens next
 
-You will hear back within a week. Once a fix ships, the report is published
-with credit to you unless you ask otherwise.
+Maintainers assess reports as availability permits. Coordinate disclosure with
+the maintainer before publishing details; fixes and disclosure timing depend on
+impact and verification. Request attribution or anonymity in your report.
 
 ## What counts
 

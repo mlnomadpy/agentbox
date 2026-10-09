@@ -29,6 +29,14 @@
 
 ---
 
+## Contributing and this fork
+
+This fork tracks documentation and quality improvements to the existing
+open-source project. Start with [CONTRIBUTING.md](CONTRIBUTING.md), the
+[documentation index](docs/README.md), and the [quality roadmap](docs/roadmap.md).
+The installation instructions below describe upstream usage; fork release
+identity and update configuration still require separate review before distribution.
+
 ## Install
 
 There are two ways to run it: in the browser, or as a Mac app. Both need Node 22 and Claude Code or Codex installed and signed in.
@@ -205,19 +213,11 @@ matter:
   this alone.
 - `maxConcurrentSessions`: how many agents run at once. The queue absorbs the
   rest, in priority order.
-- `sessionArgs`: what a spawned session may do. **The default grants only the
-  store tools**, so an agent can read the store, file questions and update work
-  items, and nothing else. To let agents edit code and run commands, opt in:
-
-  ```json
-  { "sessionArgs": ["--allowedTools", "mcp__agentbox", "--permission-mode", "acceptEdits"] }
-  ```
-
-  That grant is yours to make deliberately. The app never escalates it for you.
-
-- `personalProducts`: workspaces that are your own tasks rather than a product,
-  for example `["personal"]`. Sessions there get your message and nothing else,
-  and replying resumes the same session, like a thread.
+- `sessionArgs`: additional arguments for spawned sessions. Review
+  `main/config.mjs` and `main/supervisor.mjs` for effective permission defaults;
+  the supervisor uses provider permission modes and these must not be interpreted
+  as a store-only sandbox. Use a dedicated store and review permissions before
+  running agents against real projects.
 - `diagnostics`: `false` turns off the counts described below.
 
 </details>
