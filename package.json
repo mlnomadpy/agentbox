@@ -101,8 +101,8 @@
     "react-markdown": "^9.0.1",
     "remark-gfm": "^4.0.0",
     "typescript": "^5.5.4",
-    "vite": "^5.4.0",
-    "vitest": "^2.0.5"
+    "vite": "^8.3.5",
+    "vitest": "^5.1.0"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.29.0",
